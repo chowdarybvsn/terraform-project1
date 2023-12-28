@@ -41,6 +41,6 @@ jobs:
         
       - name: Terraform destroy
         if: github.event_name == 'workflow_dispatch'
-        run: terraform destroy --auto-approve   #added destroy stage
+        run: terraform destroy --auto-approve   
 
         
