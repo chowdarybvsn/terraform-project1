@@ -1,5 +1,5 @@
 module "VPC_project2024"{
-    source = "D:\\Others\\codebase_terra\\modules\\VPC_project2024"
+    source = "./modules/VPC_project2024"
     project2024_vpc = "30.0.0.0/16"               
     project2024_pubsub = "30.0.1.0/24"
     project2024_privsub = "30.0.2.0/24"
