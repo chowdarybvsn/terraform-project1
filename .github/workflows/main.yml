@@ -3,7 +3,7 @@ name: Terraform Workflow
 on:
   push:
     branches:
-      - main  # Change this to your main branch name
+      - master
 
 jobs:
   terraform:
