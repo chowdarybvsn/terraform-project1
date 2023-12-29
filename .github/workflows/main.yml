@@ -42,11 +42,11 @@ jobs:
         run: terraform plan
 
       - name: Terraform Apply
-        run: date #terraform apply -auto-approve
+        run: terraform apply -auto-approve
         
       - name: Terraform destroy
         if: github.event_name == 'workflow_dispatch'
-        run: uptime #terraform destroy --auto-approve
+        run: terraform destroy --auto-approve
 
   terraform-feature:
     runs-on: ubuntu-latest
