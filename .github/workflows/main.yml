@@ -1,4 +1,7 @@
 name: Terraform Workflow
+env:
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
 on:
   workflow_dispatch:
@@ -10,9 +13,7 @@ jobs:
   terraform-master:
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-    env:
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -50,9 +51,6 @@ jobs:
   terraform-feature:
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/feature'
-    env:
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
