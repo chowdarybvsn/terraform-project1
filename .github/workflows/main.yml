@@ -80,6 +80,12 @@ jobs:
   
       - name: Run TFLint
         run: tflint
+      
+      - name: Validate Terraform Code
+        run: terraform validate
+
+      - name: Format Terraform Code
+        run: terraform fmt -check
 
       - name: Terraform Init
         run: terraform init
