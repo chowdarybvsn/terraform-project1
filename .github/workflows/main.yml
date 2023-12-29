@@ -34,9 +34,24 @@ jobs:
         uses: hashicorp/setup-terraform@v1
         with:
           terraform_version: 1.5
+     
+      - name: Install TFLint
+        run: |
+            wget https://github.com/terraform-linters/tflint/releases/download/v0.32.0/tflint_linux_amd64.zip
+            unzip tflint_linux_amd64.zip
+            sudo mv tflint /usr/local/bin/
+  
+      - name: Run TFLint
+        run: tflint
+      
+      - name: Format Terraform Code
+        run: terraform fmt -check
 
       - name: Terraform Init
         run: terraform init
+
+      - name: Validate Terraform Code
+        run: terraform validate
 
       - name: terraform plan
         run: terraform plan
