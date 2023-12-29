@@ -3,6 +3,6 @@ terraform {
     bucket = "terraform-project-1-2023"
     key    = "state/backend.tfstate"
     region = "us-east-1"
-    dynamodb_table = "dynamodb-2024"
+    dynamodb_table = "Project2024"
   }
 }
